@@ -1,0 +1,38 @@
+{
+  "name": "Web2Question AI",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Generate question papers based on websites or PDFs using AI.",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js" 
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["src/content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "dist/popup.html",  
+    "default_icon": {
+      "16": "public/icons/icon16.png", 
+      "48": "public/icons/icon48.png",
+      "128": "public/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "public/icons/icon16.png", 
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  }
+}
